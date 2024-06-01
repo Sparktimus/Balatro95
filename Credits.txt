@@ -1,0 +1,6 @@
+Credits:
+Duncan Molloy - Original Balatro '95 mod
+
+MathIsFun_ - CustomFont mod
+
+Goblin - Solid Background/Motion Sickness mod
