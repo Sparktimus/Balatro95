@@ -6,12 +6,13 @@
 
 ----------------------------------------------
 ------------MOD CODE -------------------------
-function SMODS.INIT.CustomFont()
-    local customfont_mod = SMODS.findModByID("CustomFont")
-    if love.filesystem.exists(customfont_mod.path.."font.ttf") then
-        G.LANG.font.FONT = love.graphics.newFont(customfont_mod.path.."font.ttf", G.TILESIZE * 10)
-        G.LANG.font.FONTSCALE = 0.07 --Can be configured to adjust text size
-    end
+local customfont_mod = SMODS.current_mod
+if NFS.read(customfont_mod.path.."font.ttf") ~= nil then
+    local file = NFS.read(customfont_mod.path.."font.ttf")
+    love.filesystem.write("temp-font.ttf", file)
+    G.LANG.font.FONT = love.graphics.newFont("temp-font.ttf", G.TILESIZE * 10)
+    G.LANG.font.FONTSCALE = 0.065 --Can be configured to adjust text size
+    love.filesystem.remove("temp-font.ttf")
 end
 ----------------------------------------------
 ------------MOD CODE END----------------------
