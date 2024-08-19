@@ -9,7 +9,35 @@
 
 sendDebugMessage("Launching Balatro95!")
 
-local sprite_vouchers = SMODS.Atlas{
+Balatro95 = SMODS.current_mod
+
+Balatro95.config_tab = function()
+	return {
+		n = G.UIT.ROOT,
+		config = {r = 0.1, minw = 4, align = "tm", padding = 0.2, colour = G.C.BLACK},
+		nodes = {
+			{
+				n=G.UIT.R,
+				config = {align = 'cm'},
+				nodes={
+					create_toggle({
+						label = "Alternate card backs",
+						ref_table = Balatro95.config,
+						ref_value = 'alt_backs',
+						info = {
+							'Use modified versions of the default card backs.',
+							'Restart game to apply.'
+						},
+						active_colour = Balatro95.badge_colour,
+						right = true
+					})
+				}
+			}
+		}
+	}
+end
+
+SMODS.Atlas{
 	key = "Voucher",
 	path = "Vouchers95.png",
 	px = 71,
@@ -17,7 +45,7 @@ local sprite_vouchers = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_deck1 = SMODS.Atlas{
+SMODS.Atlas{
 	key = "cards_1",
 	path = "8BitDeck95.png",
 	px = 71,
@@ -25,7 +53,7 @@ local sprite_deck1 = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_deck2 = SMODS.Atlas{
+SMODS.Atlas{
 	key = "cards_2",
 	path = "8BitDeck_opt295.png",
 	px = 71,
@@ -33,7 +61,7 @@ local sprite_deck2 = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_logo = SMODS.Atlas{
+SMODS.Atlas{
 	key = "balatro",
 	path = "balatro95.png",
 	px = 333,
@@ -41,7 +69,7 @@ local sprite_logo = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_chips = SMODS.Atlas{
+SMODS.Atlas{
 	key = "chips",
 	path = "chips95.png",
 	px = 29,
@@ -49,15 +77,15 @@ local sprite_chips = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_enhancers = SMODS.Atlas{
+SMODS.Atlas{
 	key = "centers",
-	path = "Enhancers95.png",
+	path = Balatro95.config.alt_backs and "Enhancers95_alt.png" or "Enhancers95.png",
 	px = 71,
 	py = 95,
 	prefix_config = { key = false }
 }:register()
 
-local sprite_gamepad = SMODS.Atlas{
+SMODS.Atlas{
 	key = "gamepad_ui",
 	path = "gamepad_ui95.png",
 	px = 32,
@@ -65,7 +93,7 @@ local sprite_gamepad = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_icons = SMODS.Atlas{
+SMODS.Atlas{
 	key = "icons",
 	path = "icons95.png",
 	px = 66,
@@ -73,7 +101,7 @@ local sprite_icons = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_shop = SMODS.Atlas{
+SMODS.Atlas{
 	key = "shop_sign",
 	path = "ShopSignAnimation95.png",
 	px = 113,
@@ -83,7 +111,7 @@ local sprite_shop = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_stickers = SMODS.Atlas{
+SMODS.Atlas{
 	key = "stickers",
 	path = "stickers95.png",
 	px = 71,
@@ -91,7 +119,7 @@ local sprite_stickers = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_tags = SMODS.Atlas{
+SMODS.Atlas{
 	key = "tags",
 	path = "tags95.png",
 	px = 34,
@@ -99,7 +127,7 @@ local sprite_tags = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_tarots = SMODS.Atlas{
+SMODS.Atlas{
 	key = "Tarot",
 	path = "Tarots95.png",
 	px = 71,
@@ -107,7 +135,7 @@ local sprite_tarots = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_ui1 = SMODS.Atlas{
+SMODS.Atlas{
 	key = "ui_1",
 	path = "ui_assets95.png",
 	px = 18,
@@ -115,7 +143,7 @@ local sprite_ui1 = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_ui2 = SMODS.Atlas{
+SMODS.Atlas{
 	key = "ui_2",
 	path = "ui_assets_opt295.png",
 	px = 18,
@@ -123,7 +151,7 @@ local sprite_ui2 = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_jkr = SMODS.Atlas{
+SMODS.Atlas{
 	key = "Joker",
 	path = "Jokers95.png",
 	px = 71,
@@ -131,7 +159,7 @@ local sprite_jkr = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_boost = SMODS.Atlas{
+SMODS.Atlas{
 	key = "Booster",
 	path = "boosters95.png",
 	px = 71,
@@ -139,7 +167,7 @@ local sprite_boost = SMODS.Atlas{
 	prefix_config = { key = false }
 }:register()
 
-local sprite_blind = SMODS.Atlas{
+SMODS.Atlas{
 	key = "blind_chips",
 	path = "BlindChips95.png",
 	px = 34,
