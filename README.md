@@ -10,6 +10,8 @@ https://github.com/danielricci/solitaire
 
 Duncan Molloy for creating the orignial mod
 
+Riley Inman for updating the mod for the latest version of SteamModded and the 1x cards
+
 MathIsFun_ from the Balatro Discord for allowing me to bundle their CustomFont mod, which can be found standalone in the Balatro Discord
 
 Goblin on the Steam Community forums for letting me include his Solid Background mini-mod
